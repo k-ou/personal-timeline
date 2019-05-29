@@ -1,0 +1,78 @@
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Source Code Pro', sans-serif;
+    /*
+    margin-block-start: 0;
+    margin-block-end: 0;
+*/
+}
+
+p {
+    font-size: 30px;
+    margin: 0;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+.text-lb {
+    color: red;
+}
+
+.text-ba {
+    color: tomato;
+}
+
+.text-ko {
+    color: mediumblue;
+}
+
+.text-ou {
+    color: dodgerblue;
+}
+
+.text-kl {
+    color: gold;
+}
+
+body {
+    margin-left: 25%;
+}
+
+#timeline {
+    /*
+    display: grid;
+    grid-auto-rows: 1fr;
+*/
+}
+
+.timeline-row {
+    display: grid;
+    grid-template-columns: auto 4fr;
+    grid-gap: 50px;
+    border-top: 1px #dddddd solid;
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+
+.timeline-year-container {}
+
+.timeline-year {}
+
+.timeline-month {
+    /*    color: lightgrey;*/
+}
+
+.timeline-event-container {
+    display: grid;
+    grid-template-columns: auto 4fr;
+    grid-gap: 50px;
+}
+
+.timeline-event {}
