@@ -1,8 +1,13 @@
 $(document).ready(function () {
-    renderRows();
+    const tagsRendered = ['KO', 'LB', 'OU', 'BA'];
+    renderRows(tagsRendered);
+    $('.filter-btn').click(function () {
+        const tagSelected = $(this).attr('data-attr');
+        filterSelection(tagSelected);
+    })
 });
 
-function renderRows() {
+function renderRows(tagsRendered) {
     $.ajax({
         type: "GET",
         url: "timeline.csv",
@@ -11,7 +16,7 @@ function renderRows() {
             const rows = $.csv.toObjects(response).filter(r => !isEmptyRow(r));
             if (rows.length !== 0) {
                 $('#timeline-container').css('display', 'block');
-                $('#timeline-container').append(renderRow(rows))
+                $('#timeline-container').append(renderRow(rows, tagsRendered))
             }
         }
     });
@@ -28,14 +33,14 @@ function renderRows() {
 //$(window).on('resize', function () {
 //    if (winWidth != isMobile()) {
 //        winWidth = isMobile();
-//        deleteRows();
+//        deleteRow();
 //        renderRows();
 //    }
 //});
 //
-//function deleteRows(row) {
-//    $('.position').remove();
-//}
+function deleteRow() {
+    $('#timeline').remove();
+}
 
 // when mobile, only show title
 // when tablet/desktop, show title, location, clearance
@@ -44,7 +49,7 @@ function renderRows() {
 
 // if click event occurs on an expandable row
 // then create modal
-function renderRow(rows) {
+function renderRow(rows, tagList) {
     var container = $('<div id="timeline"></div>');
     var pointer = 0;
     var pointerYear = rows[pointer]['YEAR'];
@@ -85,6 +90,11 @@ function renderRow(rows) {
         pointerYear++;
     }
     return container;
+}
+
+function filterSelection(rows) {
+    deleteRow();
+    renderRow(rows, tagsRendered);
 }
 
 function filterObjectByKeys(obj, predicate) {
