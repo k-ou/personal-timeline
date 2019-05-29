@@ -17,8 +17,15 @@ h6 {
 }
 
 p {
-    font-size: 30px;
+    font-size: 24px;
     margin: 0;
+}
+
+
+@media only screen and (min-width: 768px) {
+    p {
+        font-size: 30px;
+    }
 }
 
 h1 {
@@ -45,8 +52,10 @@ h1 {
     color: gold;
 }
 
-body {
-    margin-left: 25%;
+@media only screen and (min-width: 768px) {
+    body {
+        margin-left: 25%;
+    }
 }
 
 #timeline {
@@ -56,13 +65,17 @@ body {
 */
 }
 
+.timeline-row,
+.timeline-event-container {
+    grid-gap: 25px;
+}
+
 .timeline-row {
     display: grid;
     grid-template-columns: auto 4fr;
-    grid-gap: 50px;
     border-top: 1px #dddddd solid;
-    padding-top: 50px;
-    padding-bottom: 60px;
+    padding-top: 25px;
+    padding-bottom: 30px;
 }
 
 .timeline-year-container {}
@@ -76,7 +89,19 @@ body {
 .timeline-event-container {
     display: grid;
     grid-template-columns: auto 4fr;
-    grid-gap: 50px;
 }
 
 .timeline-event {}
+
+@media only screen and (min-width: 768px) {
+
+    .timeline-row,
+    .timeline-event-container {
+        grid-gap: 50px;
+    }
+
+    .timeline-row {
+        padding-top: 50px;
+        padding-bottom: 60px;
+    }
+}
